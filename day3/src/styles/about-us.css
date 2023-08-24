@@ -1,0 +1,30 @@
+html,body {
+    background-image: url(../assets/bg.jpg);
+}
+
+.container .pa {
+    background-color: rgb(154, 118, 158);
+    text-align: center;
+    font-weight: bold;
+    margin-left: 30%;
+}
+.container .pa p {
+ color: white;
+}
+
+.container .imgs {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 3rem;
+}
+
+.container .imgs img {
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.footer {
+    background-color: rgb(154, 118, 158);
+    text-align: center;
+    border-radius: 30px;
+    padding: 5rem 1rem;
+}

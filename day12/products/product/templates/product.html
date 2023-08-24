@@ -1,0 +1,74 @@
+{% extends 'navbar.html' %} {% load static %} {% block 'title' %}All
+Products{%endblock%} {% block 'content' %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      text-align: center;
+    }
+    .cn {
+      width: 100%;
+    }
+    tr a {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+
+  </style>
+  <body>
+    <div class="container">
+      <h1>All Products</h1>
+      <a href="{% url 'product.create' %}" class="cn btn btn-primary my-4">create</a>
+      <table class="table" style="background-color: beige">
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>image</th>
+          <th>show</th>
+          <th>edit</th>
+          <th>delete</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>
+            <img
+              src="{{product.get_img_url}}"
+              width="80"
+              height="80"
+              alt=""
+            />
+          </td>
+          <td>
+            <a href="{% url 'product.show' product.id %}" class="btn btn-info"
+              >Show</a
+            >
+          </td>
+          <td>
+            <a
+              href="{{product.get_edit_url}}"
+              class="btn btn-warning"
+              >Edit</a
+            >
+          </td>
+          <td>
+            <a
+              href="{% url 'product.delete' product.id %}"
+              class="btn btn-danger"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
+{% endblock %}

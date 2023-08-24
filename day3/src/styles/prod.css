@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates four equal columns */
+  gap: 10px; /* Adds a gap of 10px between grid items (adjust as needed) */
+}
+
+.grid-item {
+  /* Add styles for the grid items, e.g., padding, background color, etc. */
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  text-align: center;
+}
+
+.grid-item:hover {
+    background-color: #ad94ff;
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    margin-bottom: 3rem;
+}

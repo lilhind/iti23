@@ -1,0 +1,52 @@
+{% extends 'student/studentBase.html' %} {% load static %} {% block title2 %}Dashboard{%endblock%}
+{% load static %}
+
+{% block custom_styles2 %}
+
+    <link rel="stylesheet" href="{% static 'css/student/dashboard.css' %}">
+    {% endblock %}
+{% block subcontent %}
+<style>
+ .cc {
+  margin: 7rem 0 !important;
+ }
+
+</style>
+    <h1 class="mytitle my-5 cc">Welcome {{ user.username }}! here's your dashboard. </h1>
+<div class="container text-center">
+
+  <div class="row">
+
+    <div class="col mycol">
+      <a href="{% url 'student.books' %}">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mycrdtitle">All Books</h5>
+            <p class="card-text mycrdtxt">discover & borrow books.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col mycol">
+      <a href="{% url 'student.borrowed' %}">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mycrdtitle">Borrowed Books</h5>
+            <p class="card-text mycrdtxt">see borrowed books.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col mycol">
+      <a href="{% url 'student.profile' %}">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title mycrdtitle">Profile Details</h5>
+            <p class="card-text mycrdtxt">edit personal details.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

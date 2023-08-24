@@ -1,0 +1,66 @@
+{% extends 'navbar.html' %} 
+{% load static %}
+{% block 'content' %}
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    list-style-type: none;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+  }
+  a {
+    width: 100%;
+    margin-bottom: .7rem;
+  }
+</style>
+<div class="container">
+  <div class="card d-flex justify-content-center mx-auto" style="width: 18rem">
+    <img
+       src="{{product.get_img_url}}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{product.name}}</h5>
+      <h5 class="card-body">Category: <a href="{{product.category.get_show_url}}">{{product.category.name}}</a></h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk of
+        the card's content.
+      </p>
+      <a href="{{product.get_edit_url}}" class="btn btn-warning"
+        >Edit</a
+      >
+      <br>
+      <a href="{% url 'product.delete' product.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+      <br>
+      <a href="{% url 'product.product'%}" class="btn btn-primary"
+        >Go Back to Products</a
+      >
+    </div>
+  </div>
+  <div>
+    <h2>other products in the same category</h2>
+    <div class="items">
+    {% for prd in product.category.products.all %}
+    {% if prd.id != product.id %}
+    <li><a href="{{prd.get_show_url}}">{{prd.name}}</a></li>
+    {% endif %}
+    {% endfor %}
+    </div>  
+  </div>
+</div>
+
+{% endblock %}
+

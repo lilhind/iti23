@@ -1,0 +1,54 @@
+{% extends 'navbar.html' %} 
+{% load static %}
+{% block 'title' %}Create Product{%endblock%}
+{% block 'content' %}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+</style>
+
+<h1>Create New product</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" name="name" class="form-control"  aria-describedby="emailHelp">
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input type="number" name="price" class="form-control"  aria-describedby="emailHelp">
+    </div>
+   
+    <div class="mb-3">
+      <label class="form-label">Image</label>
+      <input type="file" class="form-control" name="image"  aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" name="description" class="form-control"  aria-describedby="emailHelp">
+    </div>
+   
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" name="in_stock" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">In Stock</label>
+    </div>
+    <div class="mb-3 form-check">
+      <label class="form-label">Category</label>
+      <select class="form-select" aria-label="Default select example" name="category">
+        <option selected disabled>Open this select menu</option>
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+{% endblock %}
+

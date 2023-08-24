@@ -1,0 +1,52 @@
+
+.mycol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.mycol a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.mycol a:hover {
+    text-decoration: none;
+    color: white;
+    
+}
+.card {
+    color: white;
+    background-color: transparent;
+    background: inherit;
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Added transform transition */
+    z-index: 2;
+    font-size: 24px;
+
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
+    transform: scale(1.05); /* Added scale transform on hover */
+  }
+
+  .mytitle  {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .mycrdtitle {
+    text-align: start;
+  }
+  .mycrdtxt {
+    font-size: 14px;
+    text-align: start;
+  }

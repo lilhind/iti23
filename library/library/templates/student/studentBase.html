@@ -1,0 +1,61 @@
+
+{% extends 'global/base.html' %}
+{% load static %}
+{% block custom_styles %}        <link rel="stylesheet" href="{% static 'css/student/studentBase.css' %}" />
+{% block custom_styles2 %}{% endblock %}
+{% endblock %}
+{% block content %}
+<style>
+  .xx {
+    margin-right: 5rem !important;
+  }
+  .yy {
+    margin-right: 3rem !important;
+  }
+</style>
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent text-white">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="{% static 'media/logo.png' %}" alt="Bootstrap" width="40" height="40">
+          </a>
+          <a class="navbar-brand text-white xx" href="{% url 'student.dashboard' %}">Library</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-white yy" aria-current="page" href="{% url 'student.books' %}">All Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'student.borrowed' %}">Borrowed Books</a>
+              </li>
+            </ul>
+            <ul class="d-flex navbar-nav mb-2 mb-lg-0 myul" role="search">
+                {% if user.is_authenticated %}
+                <li class="nav-item usr">
+                  {{user.username}}
+                </li>
+                <li class="nav-item usr dot">
+                  •
+                </li>
+                <li class="nav-item usr">
+                    <a class="nav-link text-white usr" href="{% url 'logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'register' %}">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        {% block subcontent %}
+      {% endblock %}
+      </div>
+{% endblock %}

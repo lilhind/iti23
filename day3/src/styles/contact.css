@@ -1,0 +1,65 @@
+html,body {
+    background-image: url(../assets/bg.jpg);
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navbar .links {
+    display: flex;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 1rem;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+
+}
+
+.navbar .logo img {
+    width: 60%;
+}
+
+.slices {
+    display: flex;
+    justify-content: center;
+    gap: 7rem;
+    margin: 3rem;
+}
+
+.slices .slice {
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: 10rem;
+} 
+
+.slices .slice .title {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.baba {
+    width: 39px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.title:hover {
+    color: rgb(82, 82, 10);
+}

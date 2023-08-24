@@ -1,0 +1,58 @@
+html,body {
+    background-image: url(../assets/bg.jpg);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(219, 219, 219);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.card form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+form img {
+    width: 30%;
+}
+
+#login {
+    background-color: rgb(186, 117, 221);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    background: transparent;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+form input[type="text"]:hover, form input[type="password"]:hover, form input[type="email"]:hover {
+    border-bottom: 1px solid rgb(44, 205, 230);
+
+}
+
+.card-su {
+    padding: 2rem 4rem;
+}
+
+#pf {
+    margin-bottom: 1rem;
+}

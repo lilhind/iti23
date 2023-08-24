@@ -1,0 +1,24 @@
+html,body {
+    background-image: url(../assets/bg.jpg);
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-card {
+    background-color: rgb(169, 78, 255);
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-card p {
+    padding: 0;
+    margin: 0;
+}

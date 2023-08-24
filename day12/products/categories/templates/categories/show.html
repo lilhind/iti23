@@ -1,0 +1,66 @@
+{% extends 'navbar.html' %} 
+{% load static %}
+{% block 'content' %}
+<style>
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    list-style-type: none;
+  }
+  .items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+  }
+  a {
+    width: 100%;
+    margin-bottom: .7rem;
+  }
+</style>
+<div class="container">
+  <div class="card d-flex justify-content-center mx-auto" style="width: 18rem">
+    <img
+       src="{{category.get_image_url}}"
+      class="card-img-top"
+      alt="..."
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{category.name}}</h5>
+      <h5 class="card-body">Category: <a href="{{category.category.get_show_url}}">{{category.category.name}}</a></h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk of
+        the card's content.
+      </p>
+      <a href="{{category.get_edit_url}}" class="btn btn-warning"
+        >Edit</a
+      >
+      <br>
+      <a href="{% url 'categories.delete' category.id %}" class="btn btn-danger"
+        >Delete</a
+      >
+      <br>
+      <a href="{% url 'categories.index'%}" class="btn btn-primary"
+        >Go Back to categorys</a
+      >
+    </div>
+  </div>
+  <div>
+    <h2>other categorys in the same category</h2>
+    <div class="items">
+    {% for prd in category.category.categorys.all %}
+    {% if prd.id != category.id %}
+    <li><a href="{{prd.get_show_url}}">{{prd.name}}</a></li>
+    {% endif %}
+    {% endfor %}
+    </div>  
+  </div>
+</div>
+
+{% endblock %}
+

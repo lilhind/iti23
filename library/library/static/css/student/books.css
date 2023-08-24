@@ -1,0 +1,8 @@
+table tr td, table tr th{
+    background-color: transparent !important;
+    color: white !important;
+}
+
+h1 {
+    margin: 2rem;
+}

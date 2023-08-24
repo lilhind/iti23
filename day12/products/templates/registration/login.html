@@ -1,0 +1,31 @@
+{% extends 'navbar.html' %} 
+{% load static %}
+{% block 'title' %}Create Product{%endblock%}
+{% block 'content' %}
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .cnt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .bt {
+        margin-top: 2rem;
+    }
+</style>
+
+<h1>Login</h1>
+<form method="post" action="" enctype="multipart/form-data" class="cnt">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Login" class="btn btn-primary bt">
+</form>
+
+<script src="{% static 'categories/js/script.js' %}"></script>
+{% endblock %}
+

@@ -1,0 +1,37 @@
+{% extends 'student/studentBase.html' %} {% load static %} {% block title2 %}Borrowed Books{%endblock%}
+{% block custom_styles2 %}        <link rel="stylesheet" href="{% static 'css/student/books.css' %}" />
+{% endblock %}
+{% block subcontent %}
+{% if books %}
+<h1>All borrowed books:</h1>
+<table class="table bg-transparent">
+  <tr>
+    <th>title</th>
+    <th>author</th>
+    <th>price</th>
+    <th>publisher</th>
+    <th>pub date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  {% for book in books %}
+  <tr>
+    <td>{{book.title}}</td>
+    <td>{{book.author}}</td>
+    <td>{{book.price}}</td>
+    <td>{{book.publisher}}</td>
+    <td>{{book.pubdate}}</td>
+    <td>
+      <a href="{{book.get_show_url}}" class="btn btn-info">View</a>
+    </td>
+    <td>
+      <a href="{% url 'book.return' book.id %}" class="btn btn-danger">Return</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<h1>No borrowed books</h1>
+{% endif %}
+{% endblock %}

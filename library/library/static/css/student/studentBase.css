@@ -1,0 +1,18 @@
+.usr {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+
+.myul a {
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dot {
+    padding-left: 0.5rem;
+}

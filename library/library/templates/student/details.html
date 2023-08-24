@@ -1,0 +1,67 @@
+{% extends 'student/studentBase.html' %} {% load static %} {% block title2 %}{{book.title}} details{%endblock%}
+{% block custom_styles2 %}        <link rel="stylesheet" href="{% static 'css/student/details.css' %}" />
+{% endblock %}
+{% block subcontent %}
+<style>
+    .ct {
+        margin-top: 2rem;
+    }
+    .title {
+        
+        margin-top: 2rem;
+    }
+    .btn {
+        background-color: transparent !important;
+        width: 100%;
+        margin: 2rem 0;
+    }
+    .btn:hover {
+        background-color: white !important;
+        color: black !important;
+    }
+    .summary {
+        margin: 2rem 1rem;
+    }
+    .hh {
+        margin: 2rem 0;
+    }
+</style>
+<div class="container ct">
+    <div class="row">
+        <div class="col">
+            <img src="{{ MEDIA_URL}}{{ book.picture.url }}" height="300px">
+            <h1 class="title">{{book.title}}</h1>
+
+        </div>
+        <div class="col">
+            <h2>Author: {{book.author}}</h2>
+            <h2>Category: {{book.category}}</h2>
+            <h3>Price: {{book.price}}$</h3>
+            <h4>Publisher: {{book.publisher}}</h4>
+            <h5>Publication date: {{book.pubdate}}</h5>
+            {% if book.borrowed_by != NULL %}
+            {% endif %}
+            {% if book.borrowed_by == NULL %}
+            <p>Status: Available</p>
+            {% endif %}
+            
+            {% if book.borrowed_by != NULL %}
+            <p>Borrow date: {{book.borrow_date}}</p>
+            <p>Return date <span style="color: brown;">{{book.return_date}}</span></p>
+            <a href="{% url 'book.return' book.id %}" class="btn btn-danger">Return</a>
+            {% else %}
+            <a href="{% url 'student.borrow' book.id %}" class="btn btn-primary">Borrow</a>
+            {% endif %}
+
+        </div>
+
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h2 class="hh">Summary</h2>
+            <p class="summary">{{book.summary}}</p>
+        </div>
+    </div>
+  </div>
+{% endblock %}

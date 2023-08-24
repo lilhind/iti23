@@ -1,0 +1,31 @@
+{% extends 'student/studentBase.html' %} {% load static %} {% block 'title' %}All
+Products{%endblock%}
+{% block custom_styles %}        <link rel="stylesheet" href="{% static 'css/student/books.css' %}" />
+{% endblock %}
+{% block 'subcontent' %}
+<h1>All available books:</h1>
+<table class="table bg-transparent" style="background-color: beige">
+    <tr>
+      <th>title</th>
+      <th>author</th>
+      <th>price</th>
+      <th>publisher</th>
+      <th>publication date</th>
+      <th></th>
+    </tr>
+    {% for book in books %}
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.publication_date}}</td>
+            <td>
+              <a href="" class="btn btn-info"
+                >Borrow</a
+              >
+            </td>
+        </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
